@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include '../includes/header.php';
 include 'sidemenu.php';
 ?>
 <div class="page-wrapper">
@@ -27,5 +27,5 @@ include 'sidemenu.php';
 	</div>
 	<!-- end page content -->
 
-<?php include 'footer.php'; ?>
+<?php include '../includes/footer.php'; ?>
 <script src="js/serviceadvisor.js"></script>
