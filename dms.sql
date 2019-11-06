@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2019 at 02:22 PM
+-- Generation Time: Nov 06, 2019 at 03:30 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -49,7 +49,8 @@ INSERT INTO `appointment` (`id`, `customerid`, `vehicleid`, `servicedescription`
 (2, '8126/15/5', '2019-11-04', 'engine problems', '2019-11-04 11:55:48', '2019-11-04', '13:00:00', '14:00:00', '2', 'booked'),
 (3, '8126/15/5', '2019-11-04', 'engine', '2019-11-04 13:14:06', '2019-11-04', '15:01:00', '00:00:00', '1', 'booked'),
 (4, '8126/15/5', '2019-11-04', 'engine', '2019-11-04 13:14:50', '0000-00-00', '15:01:00', '17:00:00', '1', 'booked'),
-(5, '8126/15/5', '2019-11-04', 'engine', '2019-11-04 16:09:26', '0000-00-00', '15:01:00', '17:00:00', '1', 'booked');
+(5, '8126/15/5', '2019-11-04', 'engine', '2019-11-04 16:09:26', '0000-00-00', '15:01:00', '17:00:00', '1', 'booked'),
+(6, '8126/15/5', '2019-11-04', 'broken head lights', '2019-11-06 11:55:43', '2019-11-06', '14:03:00', '16:03:00', '1', 'booked');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,8 @@ CREATE TABLE `checkin` (
 --
 
 INSERT INTO `checkin` (`id`, `appointmentid`, `datecheckin`, `datecheckout`, `userid`) VALUES
-(1, 5, '2019-11-05 11:37:04', '2019-11-05 00:00:00', '2');
+(1, 5, '2019-11-05 11:37:04', '2019-11-05 00:00:00', '2'),
+(2, 6, '2019-11-06 11:56:24', NULL, '2');
 
 -- --------------------------------------------------------
 
@@ -112,6 +114,13 @@ CREATE TABLE `jobplan` (
   `comment` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `jobplan`
+--
+
+INSERT INTO `jobplan` (`id`, `appointmentid`, `technician`, `datejob`, `starttime`, `endtime`, `comment`) VALUES
+(3, 6, 'st908', '2019-11-07 00:00:00', '15:02', '18:01', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -130,7 +139,9 @@ CREATE TABLE `role` (
 INSERT INTO `role` (`id`, `rolename`) VALUES
 (1, 'appointment'),
 (2, 'reception'),
-(3, 'serviceadvisor');
+(3, 'serviceadvisor'),
+(4, 'jobplanner'),
+(5, 'technician');
 
 -- --------------------------------------------------------
 
@@ -151,7 +162,8 @@ CREATE TABLE `serviceadvice` (
 --
 
 INSERT INTO `serviceadvice` (`id`, `appointmentid`, `newdescription`, `userid`, `dos`) VALUES
-(1, 2, 'the engine has to be replaced', '3', '2019-11-05 12:50:13');
+(1, 2, 'the engine has to be replaced', '3', '2019-11-05 12:50:13'),
+(2, 6, 'correct', '3', '2019-11-06 12:18:48');
 
 -- --------------------------------------------------------
 
@@ -169,6 +181,13 @@ CREATE TABLE `staff` (
   `role` varchar(20) NOT NULL,
   `doa` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`id`, `firstname`, `lastname`, `gender`, `phone`, `email`, `role`, `doa`) VALUES
+('st876', 'Vasily ', 'Lomancheko', 'male', '1225799962', 'loma@gmail.com', '5', '2019-11-06 11:31:20');
 
 -- --------------------------------------------------------
 
@@ -192,7 +211,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `staffid`, `username`, `password`, `role`, `doa`) VALUES
 (1, 'st11', 'app', 'app', 1, '2019-11-04 09:01:44'),
 (2, 'st34', 'rec', 'rec', 2, '2019-11-05 10:35:25'),
-(3, 'st234', 'serve', 'serve', 3, '2019-11-05 12:13:16');
+(3, 'st234', 'serve', 'serve', 3, '2019-11-05 12:13:16'),
+(4, 'st456', 'job', 'job', 4, '2019-11-06 10:49:08'),
+(5, 'st876', 'tech', 'tech', 5, '2019-11-06 13:41:41');
 
 -- --------------------------------------------------------
 
@@ -283,37 +304,37 @@ ALTER TABLE `vehicle`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `checkin`
 --
 ALTER TABLE `checkin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jobplan`
 --
 ALTER TABLE `jobplan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `serviceadvice`
 --
 ALTER TABLE `serviceadvice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
