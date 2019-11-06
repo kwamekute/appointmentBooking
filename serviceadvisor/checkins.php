@@ -53,9 +53,9 @@ include 'sidemenu.php';
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-xs-6">
 						<div class="btn-group">
-							<a href="appointments.php" id="addRow" class="btn btn-info">
+							<!-- <a href="appointments.php" id="addRow" class="btn btn-info">
 								Check In <i class="fa fa-plus"></i>
-							</a>
+							</a> -->
 						</div>
 					</div>
 							</div>

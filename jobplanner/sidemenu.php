@@ -27,15 +27,15 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="checkins.php" class="nav-link "> 
-					<i class="material-icons">group</i>
-					<span class="title">All Checkins</span>
-				</a>
-			</li>
-			<li class="nav-item">
 				<a href="confirmedapp.php" class="nav-link "> 
 					<i class="material-icons">group</i>
 					<span class="title">Confirmed Appointments</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="jobs.php" class="nav-link "> 
+					<i class="material-icons">group</i>
+					<span class="title">Confirmed Jobs</span>
 				</a>
 			</li>
 			

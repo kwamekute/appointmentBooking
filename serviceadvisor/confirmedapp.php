@@ -54,7 +54,7 @@ include 'sidemenu.php';
 					<div class="col-md-6 col-sm-6 col-xs-6">
 						<div class="btn-group">
 							<a href="checkins.php" id="addRow" class="btn btn-info">
-								Confirm appointment <i class="fa fa-plus"></i>
+								Add Service Advice <i class="fa fa-plus"></i>
 							</a>
 						</div>
 					</div>

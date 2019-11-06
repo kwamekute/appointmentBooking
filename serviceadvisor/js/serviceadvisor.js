@@ -59,7 +59,7 @@ $("#btnsubmit").click(function(event){
     "columnDefs": [{
       "targets": -1,
       "data": "id",
-      "defaultContent":"<a class='btn btn-primary'>View</a>"
+      "defaultContent":"<a class='btn btn-primary'>View/Add</a>"
     }]
   });
   
@@ -106,7 +106,7 @@ $("#btnsubmit").click(function(event){
     "columnDefs": [{
       "targets": -1,
       "data": "id",
-      "defaultContent":"<a class='btn btn-primary'>View</a>"
+      "defaultContent":"<a class='btn btn-primary'></a>"
     }]
   });
   

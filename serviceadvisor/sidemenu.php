@@ -29,22 +29,15 @@
 			<li class="nav-item">
 				<a href="checkins.php" class="nav-link "> 
 					<i class="material-icons">group</i>
-					<span class="title">Add Service</span>
+					<span class="title">Add Service Advice</span>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a href="confirmedapp.php" class="nav-link "> 
 					<i class="material-icons">group</i>
-					<span class="title">Add job</span>
+					<span class="title">Confirmed Jobs </span>
 				</a>
 			</li>
-			<li class="nav-item">
-				<a href="jobs.php" class="nav-link "> 
-					<i class="material-icons">group</i>
-					<span class="title">All Jobs</span>
-				</a>
-			</li>
-			
 
 		</div>
 	</div>
