@@ -16,17 +16,21 @@ $mileage= "";
 
 //new description
 $newdes= "";
+$chid = "";
+
+$dt = date('Y-m-d');
 
 if(isset($_GET["appid"])){
 	$appid = $_GET["appid"];
-	$sql = "SELECT appointment.id, appointment.dob, appointment.duedate , appointment.servicedescription AS des, 
-			appointment.customerid AS cusid, appointment.vehicleid, appointment.fromtime, appointment.endtime,
+	$sql = "SELECT appointment.id AS appidc, appointment.dob, appointment.duedate , appointment.servicedescription AS des, 
+			appointment.customerid AS cusid, appointment.vehicleid, appointment.fromtime, appointment.endtime,checkin.id AS chid,
 			concat(customer.firstname, ' ', customer.lastname) as fullname,
 			serviceadvice.newdescription, vehicle.id AS vid, vehicle.chasis, vehicle.makeandmodel, vehicle.mileage FROM appointment
 			LEFT JOIN customer ON appointment.customerid = customer.id
 			LEFT JOIN serviceadvice ON appointment.id = serviceadvice.appointmentid
+			LEFT JOIN checkin ON appointment.id = checkin.appointmentid
 			LEFT JOIN vehicle ON customer.id = vehicle.customerid
-			WHERE appointment.id = '$appid'";
+			WHERE checkin.id = '$appid'";
 	 $result = $con->query($sql);
 	 if ($result->num_rows > 0) {
 		 while($row = $result->fetch_assoc()) {
@@ -42,6 +46,8 @@ if(isset($_GET["appid"])){
 			 $makeandmodel= $row["makeandmodel"];
 			 $mileage= $row["mileage"];
 			 $newdes= $row["newdescription"];
+			 $chid = $row["chid"];
+			 $appidc = $row["appidc"];
 		 }
 	 }
 	 

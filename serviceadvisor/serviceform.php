@@ -23,7 +23,7 @@
 										<label class="col-md-3 control-label">Customer
 										</label>
 										<div class="col-md-5">
-										<input type="text" id="appid" name="appid" value="<?php echo $appid; ?>" hidden />
+										<input type="text" id="appid" name="appid" value="<?php echo $appidc; ?>" hidden />
 											<select name="customer" id="customer" class="form-control select2-customers">
 											<?php if(isset($_GET['appid'])){?>							
 												<option value="<?php echo $cusid; ?>"><?php echo $cusname ?></option>
@@ -117,7 +117,7 @@
 								<div class="form-actions">
 									<div class="row">
 										<div class="offset-md-3 col-md-9">
-											<button type="submit" id="btnsubmit" name="btnsubmit" class="btn btn-info m-r-20">Submit</button>
+											<button type="submit" id="btnsubmit" name="btnsubmit" class="btn btn-info m-r-20">Confirm</button>
 											<button type="button" id="btncancel" name="btncancelold" class="btn btn-default">Cancel</button>
 										</div>
 									</div>
