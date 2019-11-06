@@ -1,6 +1,6 @@
 <?php
 require_once("dbconfig.php");
-
+$fullname="N/A";
 class Crud extends DbCOnfig {
 	public function __construct() {
 		parent::__construct();
@@ -78,7 +78,7 @@ class Crud extends DbCOnfig {
 	public function login($username, $password) {
 		if ($username != "" && $password != ""){
 		  $pass = MD5($password);
-		  $query = "SELECT id, role FROM `user` WHERE (`id` ='$username' OR username='$username') and `password` = '$password'";
+		  $query = "SELECT id, role, staffid FROM `user` WHERE (`id` ='$username' OR username='$username') and `password` = '$password'";
 		  $result = $this->connection->query($query);
 		  $count=0;
 		  if (mysqli_num_rows($result) > 0) {
@@ -86,22 +86,31 @@ class Crud extends DbCOnfig {
 				  $count = 1;
 				  $uid = $row["id"];
 				  $role = $row['role'];
+				  $staffid = $row['staffid'];
 			  }
 		  }else{
 			  echo "Wrong username or password";
 		  }
 		  
 		  if($count > 0){
+			  $fullname="N/A";
 			if($role){
 				//get admin info
-				$sql_query = "SELECT id, rolename FROM role WHERE id='".$role."'";
+				$query = "SELECT * FROM `staff` WHERE `id` ='$staffid'";
 				$result = $this->connection->query($query);
-				$row = mysqli_fetch_array($result);
+				$count=0;
+				if (mysqli_num_rows($result) > 0) {
+					while ($row = mysqli_fetch_assoc($result)) {
+					  //$count = 1;
+					  $fullname = $row["firstname"]." ".$row["lastname"];
+				  }
+				}
 				//continue
 				session_start();
 				$_SESSION['uname'] = $uid;
 				$_SESSION['role'] = $role;
-				//for admin
+				$_SESSION["staffid"] = $staffid;
+				$_SESSION["fullname"] = $fullname;
 				echo $role;
 		 }else{
 				echo $uid;

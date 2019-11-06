@@ -1,5 +1,4 @@
 
-
 			<li class="nav-item active">
 				<a href="index.php" class="nav-link "> 
 					<i class="material-icons">dashboard</i>
@@ -7,15 +6,9 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="confirmedapp.php" class="nav-link "> 
-					<i class="material-icons">group</i>
-					<span class="title">Confirmed Appointments</span>
-				</a>
-			</li>
-			<li class="nav-item">
 				<a href="jobs.php" class="nav-link "> 
 					<i class="material-icons">group</i>
-					<span class="title">Confirmed Jobs</span>
+					<span class="title">My Jobs</span>
 				</a>
 			</li>
 			
