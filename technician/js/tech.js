@@ -169,14 +169,75 @@ $("#btnaddjob").click(function(event){
 	
   });
   
+  $("#btnextendtime").click(function(event){
+	  event.preventDefault();
+	  var jobid = $("#jobid").val().trim();
+	  var exttime = $("#exttime").val().trim();
+	  $.ajax({
+			url:'extendjob_code.php',
+			type:'post',
+			data:{jobid:jobid, exttime:exttime},
+			success:function(response){
+				alert(response);					
+			}
+		});
+	
+  });
+  
   $("#btnstartjob").click(function(event){
 	  event.preventDefault();
+	  var jobid = $("#jobid").val().trim();
+	  $.ajax({
+			url:'startjob_code.php',
+			type:'post',
+			data:{jobid:jobid},
+			success:function(response){
+				alert(response);
+				$("#btnstartjob").attr("disabled","disabled");
+				$("#btnpausejob").removeAttr("disabled");
+				$("#btnstartjob").removeAttr("disabled");
+			}
+		});
+	
+  });
+  
+  $("#btnpausejob").click(function(event){
+	  event.preventDefault();
+	  var jobid = $("#jobid").val().trim();
+	  $.ajax({
+			url:'pausejob_code.php',
+			type:'post',
+			data:{jobid:jobid},
+			success:function(response){
+				alert(response);	
+				$("#btnpausejob").attr("disabled","disabled");
+				$("#btnfinishjob").removeAttr("disabled");
+				$("#btnstartjob").removeAttr("disabled");
+			}
+		});
+	
+  });
+  
+  $("#btnfinishjob").click(function(event){
+	  event.preventDefault();
+	  var jobid = $("#jobid").val().trim();
+	  $.ajax({
+			url:'finishjob_code.php',
+			type:'post',
+			data:{jobid:jobid},
+			success:function(response){
+				alert(response);
+				$("#btnpausejob").attr("disabled","disabled");
+				$("#btnfinishjob").attr("disabled","disabled");
+				$("#btnstartjob").attr("disabled","disabled");
+			}
+		});
+	
+  });
+  
 	setInterval(function() {
 		$("#timer").load("datetime.php");
     }, 1000);
-  });
-  
-	function
     
 
 });
