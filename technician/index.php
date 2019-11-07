@@ -1,17 +1,20 @@
-<?php
+<?php $page = 'dashboard';
 include '../includes/header.php';
 include 'sidemenu.php';
 include 'retrievals.php';
 ?>
-<div class="page-wrapper">
+
 
 	<!-- start page container -->
 	<div class="page-container">
+
+	<div class="page-wrapper">
 
 	<!-- start page content -->
 	<div class="page-content-wrapper">
 		<div class="page-content">
 			<div class="page-bar">
+			<br>
 				<div class="page-title-breadcrumb">
 					<div class=" pull-left">
 						<div class="page-title">Dashboard</div>
@@ -31,7 +34,7 @@ include 'retrievals.php';
 						<div class="info-box bg-blue">
 							<span class="info-box-icon push-bottom"><i class="material-icons">group</i></span>
 							<div class="info-box-content">
-								<span class="info-box-text">Appointments</span>
+								<span class="info-box-text">Pending Jobs</span>
 								<span class="info-box-number"><?php echo $ac;?></span>
 								<div class=" hide progress">
 									<div class="progress-bar" style="width: 45%"></div>
@@ -49,7 +52,7 @@ include 'retrievals.php';
 						<div class="info-box bg-orange">
 							<span class="info-box-icon push-bottom"><i class="material-icons">person</i></span>
 							<div class="info-box-content">
-								<span class="info-box-text">Checkins</span>
+								<span class="info-box-text">On going Jobs</span>
 								<span class="info-box-number"><?php echo $ch;?></span>
 								<div class="hide progress">
 									<div class="progress-bar" style="width: 40%"></div>
@@ -64,10 +67,10 @@ include 'retrievals.php';
 					</div>
 					<!-- /.col -->
 					<div class="col-xl-3 col-md-6 col-12">
-						<div class="info-box bg-purple">
+						<div class="info-box bg-success">
 							<span class="info-box-icon push-bottom"><i class="material-icons">build</i></span>
 							<div class="info-box-content">
-								<span class="info-box-text">Jobs</span>
+								<span class="info-box-text">Finished Jobs</span>
 								<span class="info-box-number"><?php echo $jc;?></span>
 								<div class="hide progress">
 									<div class="progress-bar" style="width: 85%"></div>

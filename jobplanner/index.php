@@ -1,4 +1,5 @@
-<?php
+<?php $page = "dashboard";
+      $portal = "Job Planner";
 include '../includes/header.php';
 include 'sidemenu.php';
 include 'retrievals.php';
@@ -12,6 +13,7 @@ include 'retrievals.php';
 	<div class="page-content-wrapper">
 		<div class="page-content">
 			<div class="page-bar">
+				<br>
 				<div class="page-title-breadcrumb">
 					<div class=" pull-left">
 						<div class="page-title">Dashboard</div>

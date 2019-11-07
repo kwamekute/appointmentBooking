@@ -1,4 +1,4 @@
-
+</div>
 </div>
 <!-- end page container -->
 <div class="page-footer">

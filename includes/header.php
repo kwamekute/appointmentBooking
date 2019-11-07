@@ -18,7 +18,9 @@ if (!(isset ( $_SESSION ['uname'] )) ) {
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta name="description" content="" />
 	<meta name="author" content="Efisah and jebo" />
-	<title>Appointment</title>
+	<title>
+		<?php echo $portal;?>
+	</title>
 	
 	<!-- google font -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
@@ -86,7 +88,7 @@ if (!(isset ( $_SESSION ['uname'] )) ) {
 			<ul class="nav navbar-nav navbar-left in">
 				<li><a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i></a></li>
 			</ul>
-			<form class="search-form-opened" action="#" method="GET">
+		<!--	<form class="search-form-opened" action="#" method="GET">
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="Search..." name="query">
 					<span class="input-group-btn">
@@ -96,6 +98,7 @@ if (!(isset ( $_SESSION ['uname'] )) ) {
 					</span>
 				</div>
 			</form>
+			-->
 			<!-- start mobile menu -->
 			<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
 				<span></span>
@@ -105,7 +108,7 @@ if (!(isset ( $_SESSION ['uname'] )) ) {
 			<div class="top-menu">
 				<ul class="nav navbar-nav pull-right">
 					<!-- start language menu -->
-					<li class="dropdown language-switch">
+				<!--	<li class="dropdown language-switch">
 						<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="" class="position-left"
 							alt=""> English <span class="fa fa-angle-down"></span>
 						</a>
@@ -115,13 +118,14 @@ if (!(isset ( $_SESSION ['uname'] )) ) {
 							</li>
 						</ul>
 					</li>
+					-->
 
 
 					<!-- start manage user dropdown -->
 					<li class="dropdown dropdown-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-							<img alt="" class="img-circle " src="" />
-							<span class="username username-hide-on-mobile"><h4 id="navuser" name="navuser" ><?php echo $username; ?></h4></span>
+							<img style="margin-top: 14px;"alt="" class="img-circle " src="" />
+							<span class="username username-hide-on-mobile"><h4 id="navuser" name="navuser" ><?php echo $fullname; ?></h4></span>
 							<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
@@ -159,23 +163,3 @@ if (!(isset ( $_SESSION ['uname'] )) ) {
 			</div>
 <!-- end header -->
 <!-- start sidebar menu -->
-<div class="sidebar-container">
-	<div class="sidemenu-container navbar-collapse collapse fixed-menu">
-		<div id="remove-scroll" class="left-sidemenu">
-			<ul class="sidemenu page-header-fixed slimscroll-style" data-keep-expanded="false" data-auto-scroll="true"
-			data-slide-speed="200" style="padding-top: 20px">
-			<li class="sidebar-toggler-wrapper hide">
-				<div class="sidebar-toggler">
-					<span></span>
-				</div>
-			</li>
-			<li class="sidebar-user-panel">
-				<div class="user-panel">
-					<div class="pull-left image">
-						<img src="../assets/img/user.png" class="img-circle user-img-circle" alt="User Image" />
-					</div>
-					<div class="pull-left info">
-						<p><?php echo $fullname; ?></p>
-					</div>
-				</div>
-			</li>
