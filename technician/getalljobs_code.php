@@ -1,4 +1,7 @@
 <?php
+session_start();
+$staffid = $_SESSION["staffid"];
+
 
 $table = <<<EOT
 (
@@ -8,6 +11,7 @@ $table = <<<EOT
 	,concat(customer.firstname, ' ', customer.lastname) as fullname FROM jobplan
 	LEFT JOIN appointment ON jobplan.appointmentid = appointment.id 
 	LEFT JOIN customer ON appointment.customerid = customer.id
+	WHERE jobplan.technician = '$staffid'
 )temp
 EOT;
 

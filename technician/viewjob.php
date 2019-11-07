@@ -28,4 +28,4 @@ include 'sidemenu.php';
 	<!-- end page content -->
 
 <?php include '../includes/footer.php'; ?>
-<script src="js/jobplan.js"></script>
+<script src="js/tech.js"></script>

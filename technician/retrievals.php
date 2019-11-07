@@ -2,7 +2,7 @@
 
 require_once("../class/crud.php"); 
 $crud = new Crud();
- 
+
 $cusarr = array();
 
 $sqlc = "SELECT * from customer";
@@ -70,5 +70,6 @@ if($resultjc->num_rows > 0) {
 }else{
 	$jc = 0;
 }
+
 
 ?>

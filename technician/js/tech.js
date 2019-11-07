@@ -168,5 +168,15 @@ $("#btnaddjob").click(function(event){
 	window.location = "viewjob.php?jobid="+jobid+"";
 	
   });
+  
+  $("#btnstartjob").click(function(event){
+	  event.preventDefault();
+	setInterval(function() {
+		$("#timer").load("datetime.php");
+    }, 1000);
+  });
+  
+	function
+    
 
 });

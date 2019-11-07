@@ -172,7 +172,7 @@ if (!(isset ( $_SESSION ['uname'] )) ) {
 			<li class="sidebar-user-panel">
 				<div class="user-panel">
 					<div class="pull-left image">
-						<img src="" class="img-circle user-img-circle" alt="User Image" />
+						<img src="../assets/img/user.png" class="img-circle user-img-circle" alt="User Image" />
 					</div>
 					<div class="pull-left info">
 						<p><?php echo $fullname; ?></p>

@@ -4,7 +4,7 @@
 	<ul class="nav customtab nav-tabs" role="tablist">
 		<li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">Service Details</a></li>
 		<li class="nav-item"><a href="#tab2" class="nav-link" data-toggle="tab">Car Details </a></li>
-		<li class="nav-item"><a href="#tab3" class="nav-link" data-toggle="tab">Assign A Technician</a></li>
+		<li class="nav-item"><a href="#tab3" class="nav-link" data-toggle="tab">Start/Stop Job</a></li>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane active fontawesome-demo" id="tab1">	
@@ -197,38 +197,12 @@
 					<div class="card card-box">
 						<div class="card-head">
 							<header>
-								Assign to technician
+								Start / Stop Job
 							</header>
 						</div>
 						<div class="card-body" id="bar-parent">
 								<div class="form-body">
 								
-									<div class="form-group row">
-										<label class="col-md-3 control-label">Technician
-										</label>
-										<div class="col-md-5">
-										<input type="text" id="appid" name="appid" value="<?php echo $appidc; ?>" hidden />
-											<select name="technician" id="technician" class="form-control select2-customers">
-											<?php if(isset($_GET['jobid'])){?>							
-												<option value="<?php echo $tid; ?>"><?php echo $tname ?></option>
-											<?php
-												}else{
-												?>
-												<option value="">Select a Technician</option>
-											<?php
-												}
-											?>
-												<?php foreach($resultt as $t) { ?>
-													<option value="<?php echo $t["id"]; ?>">
-													<?php echo $t["firstname"].' '.$t["lastname"]; ?>
-													</option>
-												<?php  
-												}
-												?>
-											</select>
-										</div>
-									</div>
-									
 									<div class="form-group row">
 										<label class="control-label col-md-3">Start Date
 											<span class="required"> * </span>
@@ -244,11 +218,22 @@
 										<div class="col-md-5">
 											<div class="row">
 												<div class="col-md-5">
-													<input name="starttime" id="starttime" class="form-control input-height" type="time" value="<?php echo $starttime; ?>" id="example-time-input">
+													<h3 ><?php echo $starttime; ?></h3>
 												</div>
 												<label class="control-label small-label col-md-2">End Time</label>
 												<div class="col-md-5">
-													<input name="endtime" id="endtime" class="form-control input-height" type="time" value="<?php echo $endtime;?>" id="example-time-input2">
+													<h3 ><?php echo $endtime; ?></h3>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label class="control-label col-md-3">Time Elapsed</label>
+										<div class="col-md-5">
+											<div class="row">
+												<div class="col-md-5">
+													<h3 id="timer" name="timer"><?php echo $telapse; ?></h3>
 												</div>
 											</div>
 										</div>
@@ -259,8 +244,8 @@
 								<div class="form-actions">
 									<div class="row">
 										<div class="offset-md-3 col-md-9">
-											<button type="submit" id="btnaddjob" name="btnaddjob" class="btn btn-info m-r-20">Confirm</button>
-											<button type="button" id="btncancel" name="btncancelold" class="btn btn-default">Cancel</button>
+											<button type="submit" id="btnstartjob" name="btnstartjob" class="btn btn-info m-r-20">Start</button>
+											<button type="button" id="btnstopjob" name="btnstopjob" class="btn btn-default">Stop</button>
 										</div>
 									</div>
 								</div>

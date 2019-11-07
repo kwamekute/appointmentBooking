@@ -27,12 +27,14 @@ $tname = "";
 
 $appidc = "";
 
+$telapse = "0:00";
+
 
 if(isset($_GET["jobid"])){
 	$jobid = $_GET["jobid"];
 	$sql = "SELECT jobplan.id, jobplan.appointmentid, jobplan.technician , 
 			jobplan.datejob, jobplan.starttime, jobplan.comment,
-			jobplan.endtime, appointment.id AS appidc, appointment.vehicleid, appointment.servicedescription AS des, 
+			jobplan.endtime, jobplan.timespent, appointment.id AS appidc, appointment.vehicleid, appointment.servicedescription AS des, 
 			appointment.fromtime AS ftime, appointment.endtime AS totime, customer.id AS cusid, vehicle.chasis,
 			vehicle.makeandmodel, vehicle.mileage, serviceadvice.newdescription,
 			staff.id AS tid, concat(staff.firstname, ' ', staff.lastname) AS tname,
@@ -66,6 +68,7 @@ if(isset($_GET["jobid"])){
 			 $endtime = $row["endtime"];
 			 $tid = $row["tid"];
 			 $tname = $row["tname"];
+			 $telapse = $row["timespent"];
 			 
 		 }
 	 }
