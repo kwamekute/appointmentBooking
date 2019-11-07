@@ -1,4 +1,4 @@
 <?php
-    $msg = date('Y-m-s h:i:s');
+    $msg = date('h:i:s');
     echo $msg;
 ?>

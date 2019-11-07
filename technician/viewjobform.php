@@ -227,6 +227,20 @@
 											</div>
 										</div>
 									</div>
+									<div class="form-group row">
+										<label class="control-label col-md-3">Extended Time</label>
+										<div class="col-md-5">
+											<div class="row">
+												<div class="col-md-5">
+													<input name="exttime" id="exttime" class="form-control input-height" type="time" value="<?php echo $exttime; ?>" id="example-time-input">
+												</div>
+												<label class="control-label small-label col-md-2"></label>
+												<div class="col-md-5">
+													<button type="submit" id="btnextendtime" name="btnextendtime" class="btn btn-info m-r-20">Extend Time</button>
+												</div>
+											</div>
+										</div>
+									</div>
 									
 									<div class="form-group row">
 										<label class="control-label col-md-3">Time Elapsed</label>
@@ -238,14 +252,25 @@
 											</div>
 										</div>
 									</div>
-					
+									
+									<div class="form-group row">
+										<label class="control-label col-md-3">Status</label>
+										<div class="col-md-5">
+											<div class="row">
+												<div class="col-md-5">
+													<h3 id="status" name="status"><?php echo $status; ?></h3>
+												</div>
+											</div>
+										</div>
+									</div>
 
 								</div>
 								<div class="form-actions">
 									<div class="row">
 										<div class="offset-md-3 col-md-9">
-											<button type="submit" id="btnstartjob" name="btnstartjob" class="btn btn-info m-r-20">Start</button>
-											<button type="button" id="btnstopjob" name="btnstopjob" class="btn btn-default">Stop</button>
+											<button type="submit" id="btnstartjob" name="btnstartjob" class="btn btn-info m-r-20">start</button>
+											<button type="submit" id="btnpausejob" name="btnpausejob" class="btn btn-info m-r-20">Pause</button>
+											<button type="button" id="btnstopjob" name="btnfinishjob" class="btn btn-default">Finish</button>
 										</div>
 									</div>
 								</div>
