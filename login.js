@@ -27,6 +27,8 @@ $(document).ready(function(){
             window.location = "customer/";
           }else if(response == 7){
             window.location = "workshop/";
+          }else if(response == 8){
+            window.location = "admin/";
           }else{
             alert(response);
           }
