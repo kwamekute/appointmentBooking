@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2019 at 03:30 PM
+-- Generation Time: Nov 07, 2019 at 09:13 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -77,6 +77,29 @@ INSERT INTO `checkin` (`id`, `appointmentid`, `datecheckin`, `datecheckout`, `us
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `company`
+--
+
+CREATE TABLE `company` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `address` varchar(500) NOT NULL,
+  `email` text NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `doa` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`id`, `name`, `description`, `address`, `email`, `phone`, `doa`) VALUES
+(1, 'harri service', 'noad', 'dfoid', 'harridadzie28@gmail.com', '0547260262', '2019-11-07 13:27:07');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customer`
 --
 
@@ -88,7 +111,7 @@ CREATE TABLE `customer` (
   `phone` varchar(13) NOT NULL,
   `email` varchar(50) NOT NULL,
   `company` varchar(80) NOT NULL,
-  `doa` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `doa` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -96,7 +119,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `firstname`, `lastname`, `gender`, `phone`, `email`, `company`, `doa`) VALUES
-('8126/15/5', 'John', 'Jebo', 'male', '0201896820', 'johnjebo@gmail.com', '', '2019-11-04 11:55:48');
+('8126/15/5', 'John', 'Jebo', 'male', '0201896820', 'johnjebo@gmail.com', '', '2019-11-07 14:34:31'),
+('8194/14/4', 'Mary', 'Agba', 'female', '0547260262', 'mary@gmail.com', '', '2019-11-07 12:20:05');
 
 -- --------------------------------------------------------
 
@@ -111,6 +135,7 @@ CREATE TABLE `jobplan` (
   `datejob` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `starttime` text,
   `endtime` text,
+  `timespent` time DEFAULT NULL,
   `comment` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -118,8 +143,8 @@ CREATE TABLE `jobplan` (
 -- Dumping data for table `jobplan`
 --
 
-INSERT INTO `jobplan` (`id`, `appointmentid`, `technician`, `datejob`, `starttime`, `endtime`, `comment`) VALUES
-(3, 6, 'st908', '2019-11-07 00:00:00', '15:02', '18:01', NULL);
+INSERT INTO `jobplan` (`id`, `appointmentid`, `technician`, `datejob`, `starttime`, `endtime`, `timespent`, `comment`) VALUES
+(3, 6, 'st908', '2019-11-07 00:00:00', '15:02', '18:01', '01:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -141,7 +166,8 @@ INSERT INTO `role` (`id`, `rolename`) VALUES
 (2, 'reception'),
 (3, 'serviceadvisor'),
 (4, 'jobplanner'),
-(5, 'technician');
+(5, 'technician'),
+(8, 'admin');
 
 -- --------------------------------------------------------
 
@@ -187,7 +213,8 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `firstname`, `lastname`, `gender`, `phone`, `email`, `role`, `doa`) VALUES
-('st876', 'Vasily ', 'Lomancheko', 'male', '1225799962', 'loma@gmail.com', '5', '2019-11-06 11:31:20');
+('st2385558', 'Kwame ', 'Ewusi', 'male', '0459866348', 'kwame@gmail.com', '4', '2019-11-07 16:00:46'),
+('st908', 'Vasily ', 'Lomancheko', 'male', '1225799962', 'loma@gmail.com', '5', '2019-11-06 11:31:20');
 
 -- --------------------------------------------------------
 
@@ -213,7 +240,9 @@ INSERT INTO `user` (`id`, `staffid`, `username`, `password`, `role`, `doa`) VALU
 (2, 'st34', 'rec', 'rec', 2, '2019-11-05 10:35:25'),
 (3, 'st234', 'serve', 'serve', 3, '2019-11-05 12:13:16'),
 (4, 'st456', 'job', 'job', 4, '2019-11-06 10:49:08'),
-(5, 'st876', 'tech', 'tech', 5, '2019-11-06 13:41:41');
+(5, 'st908', 'tech', 'tech', 5, '2019-11-07 08:52:31'),
+(6, 'admin', 'admin', 'admin', 8, '2019-11-07 15:33:33'),
+(8, 'st2385558', 'st2385558', 'kwame', 4, '2019-11-07 16:30:04');
 
 -- --------------------------------------------------------
 
@@ -236,7 +265,8 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`id`, `customerid`, `chasis`, `makeandmodel`, `mileage`, `descriptionservice`, `doa`) VALUES
-('2019-11-04', '8126/15/5', 'vl567', 'benz', '300', 'engine problems', '2019-11-04 11:55:48');
+('2019-11-04', '8126/15/5', 'vl567', 'benz', '300', 'engine problems', '2019-11-04 11:55:48'),
+('wr234-20', '8194/14/4', 'c4232bn', 'bentley', '300', 'N/A', '2019-11-07 12:33:58');
 
 --
 -- Indexes for dumped tables
@@ -252,6 +282,12 @@ ALTER TABLE `appointment`
 -- Indexes for table `checkin`
 --
 ALTER TABLE `checkin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -313,6 +349,12 @@ ALTER TABLE `checkin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `company`
+--
+ALTER TABLE `company`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `jobplan`
 --
 ALTER TABLE `jobplan`
@@ -322,7 +364,7 @@ ALTER TABLE `jobplan`
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `serviceadvice`
@@ -334,7 +376,7 @@ ALTER TABLE `serviceadvice`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
