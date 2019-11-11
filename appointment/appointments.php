@@ -1,4 +1,4 @@
-<?php $page  = "allapps";
+<?php $page  = "appts";
 $portal = "appointments";
 include '../includes/header.php';
 include 'sidemenu.php';
@@ -12,9 +12,10 @@ include 'sidemenu.php';
 			<div class="page-content">
 				<div class="page-bar">
 					<br>
+				
 					<div class="page-title-breadcrumb">
 						<div class=" pull-left">
-							<div class="page-title">All 
+							<div class="page-title">All Appointments
 							</div>
 						</div>
 						<ol class="breadcrumb page-breadcrumb pull-right">

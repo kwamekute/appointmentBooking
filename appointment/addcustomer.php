@@ -1,4 +1,6 @@
 <?php
+$page = 'addcust';
+$portal = 'Appointment';
 include '../includes/header.php';
 include 'sidemenu.php';
 ?>
@@ -10,6 +12,7 @@ include 'sidemenu.php';
 		<div class="page-content-wrapper">
 			<div class="page-content">
 				<div class="page-bar">
+				<br>
 					<div class="page-title-breadcrumb">
 						<div class=" pull-left">
 							<div class="page-title">Customer Details

@@ -1,4 +1,6 @@
-<?php $page = "confirmed";
+<?php
+$portal = 'Job Planner';
+ $page = "confirmed";
 include '../includes/header.php';
 include 'sidemenu.php';
 ?>

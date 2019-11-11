@@ -10,6 +10,7 @@ include 'sidemenu.php';
 		<div class="page-content-wrapper">
 			<div class="page-content">
 				<div class="page-bar">
+				<br>
 					<div class="page-title-breadcrumb">
 						<div class=" pull-left">
 							<div class="page-title">Service Advice Details

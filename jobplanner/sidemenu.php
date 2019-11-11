@@ -27,14 +27,14 @@
 			</li>
 			<li class="nav-item  <?php echo $page == 'confirmed'?'active open':''; ?>">
 				<a href="confirmedapp.php" class="nav-link "> 
-					<i class="material-icons">group</i>
-					<span class="title">Confirmed Appointments</span>
+					<i class="material-icons">input</i>
+					<span class="title">Jobs In Waiting</span>
 				</a>
 			</li>
 			<li class="nav-item <?php echo $page == 'jobs'?'active open':''; ?>">
 				<a href="jobs.php" class="nav-link "> 
 					<i class="material-icons">group</i>
-					<span class="title">Confirmed Jobs</span>
+					<span class="title">Assigned Jobs</span>
 				</a>
 			</li>
 			

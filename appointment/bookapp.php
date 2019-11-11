@@ -1,6 +1,6 @@
 <?php
 $portal = "appointments";
-$page  = "addapps";
+$page  = "addappts";
 include '../includes/header.php';
 include 'sidemenu.php';
 ?>

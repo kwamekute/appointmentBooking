@@ -1,6 +1,6 @@
 <?php
-$page = "addappts";
-$portal = "Admnistrator";
+$portal = "Reception";
+$page  = "addappts";
 include '../includes/header.php';
 include 'sidemenu.php';
 ?>
@@ -12,7 +12,7 @@ include 'sidemenu.php';
 		<div class="page-content-wrapper">
 			<div class="page-content">
 				<div class="page-bar">
-				<br>
+					<br>
 					<div class="page-title-breadcrumb">
 						<div class=" pull-left">
 							<div class="page-title">Appointment Details

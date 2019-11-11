@@ -29,8 +29,8 @@
 			</li>
 			
 			<!-- Appointments Menu Group -->
-			<li class="nav-item  <?php echo $page == 'allapps'?'active open':''; ?>">
-				<a href="#" class="nav-link nav-toggle"> <i class="material-icons">group</i>
+			<li class="nav-item  <?php echo $page == 'appts'?'active open':''; ?>">
+				<a href="#" class="nav-link nav-toggle"> <i class="material-icons">date_range</i>
 					<span class="title">Appointments</span> 
 					<span class="label label-rouded label-menu">
 					<?php echo $ac;?>
@@ -39,7 +39,7 @@
 				</a>
 				<ul class="sub-menu">
 
-					<li class="nav-item <?php echo $page == 'allapps'?'active open':''; ?>">
+					<li class="nav-item <?php echo $page == 'appts'?'active open':''; ?>">
 						<a href="appointments.php" class="nav-link">
 							<span class="title">All Appointments</span>
 							<span  style="background:#C9302C;"class="label label-rouded label-menu">
@@ -47,18 +47,19 @@
 						</a>
 					</li>
 
-					<li class="nav-item <?php echo $page == 'addapps'?'active open':''; ?>">
+					<li class="nav-item <?php echo $page == 'addappts'?'active open':''; ?>">
 						<a href="bookapp.php" class="nav-link">
-							<span class="title">Add Appointment</span>
-							<span  style="background:#E67D20;"class="label label-rouded label-menu">
-							
+							<span class="title">Add Appt</span>
+							<span  style="background:#167CCB;"class="label label-rouded label-menu">
+							<i class="material-icons" style="margin-top:-7px;">add</i>
+						</a>
 						</a>
 					</li>
 				</ul>
 			</li>
 			<!-- Customer Menu Group -->
-			<li class="nav-item">
-				<a href="#" class="nav-link nav-toggle"> <i class="material-icons">group</i>
+			<li class="nav-item <?php echo $page == 'cust'?'active open':''; ?>">
+				<a href="#" class="nav-link nav-toggle"> <i class="material-icons">person</i>
 					<span class="title">Customer</span> 
 					<span class="label label-rouded label-menu">
 					<?php echo $ac;?>
@@ -67,7 +68,7 @@
 				</a>
 				<ul class="sub-menu">
 
-					<li class="nav-item">
+					<li class="nav-item <?php echo $page == 'cust'?'active open':''; ?>">
 						<a href="customers.php" class="nav-link">
 							<span class="title">All Customers</span>
 							<span  style="background:#C9302C;"class="label label-rouded label-menu">
@@ -75,10 +76,11 @@
 						</a>
 					</li>
 
-					<li class="nav-item">
+					<li class="nav-item <?php echo $page == 'addcust'?'active open':''; ?>">
 						<a href="addcustomer.php" class="nav-link">
 							<span class="title">Add Customer</span>
-							<span  style="background:#E67D20;"class="label label-rouded label-menu">
+							<span  style="background:#167CCB;"class="label label-square label-menu">
+							<i class="material-icons" style="margin-top:-7px;">add</i>
 							
 						</a>
 					</li>
@@ -86,7 +88,7 @@
 			</li>
 			
 			<!-- Company Menu Group -->
-			<li class="nav-item">
+			<li class="nav-item <?php echo $page == ''?'active open':''; ?>">
 				<a href="#" class="nav-link nav-toggle"> <i class="material-icons">group</i>
 					<span class="title">Company</span> 
 					<span class="label label-rouded label-menu">
@@ -107,7 +109,8 @@
 					<li class="nav-item">
 						<a href="addcompany.php" class="nav-link">
 							<span class="title">Add Company</span>
-							<span  style="background:#E67D20;"class="label label-rouded label-menu">
+							<span  style="background:#167CCB;"class="label label-rouded label-menu">
+							<i class="material-icons" style="margin-top:-7px;">add</i>
 							
 						</a>
 					</li>
@@ -116,8 +119,8 @@
 			
 			
 			<!-- Vehicles Menu Group -->
-			<li class="nav-item">
-				<a href="#" class="nav-link nav-toggle"> <i class="material-icons">group</i>
+			<li class="nav-item <?php echo $page == 'veh'?'active open':''; ?>">
+				<a href="#" class="nav-link nav-toggle"> <i class="material-icons">drive_eta</i>
 					<span class="title">Vehicle</span> 
 					<span class="label label-rouded label-menu">
 					<?php echo $ac;?>
@@ -126,7 +129,7 @@
 				</a>
 				<ul class="sub-menu">
 
-					<li class="nav-item">
+					<li class="nav-item <?php echo $page == 'veh'?'active open':''; ?>">
 						<a href="vehicles.php" class="nav-link">
 							<span class="title">All Vehicles</span>
 							<span  style="background:#C9302C;"class="label label-rouded label-menu">
@@ -134,10 +137,11 @@
 						</a>
 					</li>
 
-					<li class="nav-item">
+					<li class="nav-item <?php echo $page == 'addveh'?'active open':''; ?>">
 						<a href="addcars.php" class="nav-link">
 							<span class="title">Add Vehicle</span>
-							<span  style="background:#E67D20;"class="label label-rouded label-menu">
+							<span  style="background:#167CCB;"class="label label-rouded label-menu">
+							<i class="material-icons" style="margin-top:-7px;">add</i>
 							
 						</a>
 					</li>

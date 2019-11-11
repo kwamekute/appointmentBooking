@@ -1,4 +1,6 @@
-<?php $page = 'dashboard';
+<?php 
+$page = 'dashboard';
+$portal = "Technician";
 include '../includes/header.php';
 include 'sidemenu.php';
 include 'retrievals.php';
