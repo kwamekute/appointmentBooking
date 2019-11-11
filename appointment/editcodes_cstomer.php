@@ -7,11 +7,12 @@ $gender="";
 $phone= "";
 $email="";
 $doa = "";
+$compname = "";
 
 if(isset($_GET["cusid"])){
 	$cusid = $_GET["cusid"];
 	$sql = "SELECT customer.id, customer.firstname, customer.lastname, customer.gender
-			,customer.phone, customer.email, customer.doa FROM customer
+			,customer.phone, customer.email, customer.doa, customer.company FROM customer
 			WHERE customer.id = '$cusid'";
 	 $result = $con->query($sql);
 	 if ($result->num_rows > 0) {
@@ -23,6 +24,7 @@ if(isset($_GET["cusid"])){
 			 $phone = $row["phone"];
 			 $email = $row["email"];
 			 $doa = $row["doa"];
+			 $compname = $row["company"];
 		 }
 	 }
 }else{

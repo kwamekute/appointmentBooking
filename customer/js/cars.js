@@ -4,14 +4,14 @@ $(document).ready(function(event){
 		$("#empdetb").DataTable().ajax.reload();
 	},2000);*/
 	//load employee details table
-	$('#custb').DataTable({
+	$('#vehtb').DataTable({
     "pagingType": "numbers",
     "processing": true,
 	"dom": 'Bfrtip',
 	"buttons": [
             "copy", "csv", "excel",
 			{
-				title: "Customers",
+				title: "Appointments",
                 extend: 'print',
 				exportOptions: {
 					stripHtml: false
@@ -29,7 +29,7 @@ $(document).ready(function(event){
             }
         ],
     "serverSide": true,
-    "ajax": "getallcustomers_code.php",
+    "ajax": "getallvehicles_code.php",
     "columnDefs": [{
       "targets": -1,
       "data": "id",
@@ -39,32 +39,30 @@ $(document).ready(function(event){
   
   
   //click event for employee details table
-  $('#custb tbody').on( 'click', 'tr', function () {
-    var table = $('#custb').DataTable();
+  $('#vehtb tbody').on( 'click', 'tr', function () {
+    var table = $('#vehtb').DataTable();
     var data = table.row( this ).data();
-	var cusid = data[0];
-	var userid = data[8];
+	var appid = data[5];
+	var userid = data[6];
 	var navuser = $("#navuser").html().trim();
 	if(userid!=navuser){
-		alert("You cannot edit this Customer information");
+		alert("You cannot edit this appointment information");
 	}else{
-		window.location = "addcustomer.php?cusid="+cusid+"";
+		window.location = "addcars.php?appid="+appid+"";
 	}
 	
   });
 
 
     //Save new
-	$("#btnaddcus").click(function(event){
+	$("#btnaddveh").click(function(event){
 		event.preventDefault();
 		
-		var fname = $("#firstname").val().trim();
-		var lname = $("#lastname").val().trim();
-		var gender = $("#gender").val().trim();
-		//var doe = $("#doe").val().trim();
-		var mobile = $("#phone").val().trim();
+		var regno = $("#regno").val().trim();
+		var chasis = $("#chasis").val().trim();
+		var makeandmodel = $("#makeandmodel").val().trim();
 		
-		if(fname=="" || lname=="" || gender=="" || mobile==""){
+		if(regno=="" || chasis=="" || makeandmodel==""){
 			alert("Enter all the required details");
 			//toastr.error("Enter all the required details");
 		}else{
@@ -72,7 +70,7 @@ $(document).ready(function(event){
 		var data = $("#fmaddnew").serialize();
 		//$("#fmaddnew").addClass("loading");
 			$.ajax({
-				url:'addcustomer_code.php',
+				url:'addcar_code.php',
 				type:'post',
 				data:data,
 				success:function(response){
@@ -86,24 +84,20 @@ $(document).ready(function(event){
 	
 
 	//Update old
-	$("#btnupdatecus").click(function(event){
+	$("#btnupdateold").click(function(event){
 		event.preventDefault();
+		var customer = $("#customer").val().trim();
+		var vehicle = $("#vehicle").val();
 		
-		var fname = $("#firstname").val().trim();
-		var lname = $("#lastname").val().trim();
-		var gender = $("#gender").val().trim();
-		//var doe = $("#doe").val().trim();
-		var mobile = $("#phone").val().trim();
-		
-		if(fname=="" || lname=="" || gender=="" || mobile==""){
+		if(customer=="" || vehicle==""){
 			alert("Enter all the required details");
 			//toastr.error("Enter all the required details");
 		}else{
 		
-		var data = $("#fmaddnew").serialize();
+		var data = $("#fmaddold").serialize();
 		//$("#fmaddnew").addClass("loading");
 			$.ajax({
-				url:'editcustomer_code.php',
+				url:'updateappold_code.php',
 				type:'post',
 				data:data,
 				success:function(response){
@@ -111,7 +105,7 @@ $(document).ready(function(event){
 				}
 			});
 			
-		}		
+		}	
 		
 	});
 
@@ -146,15 +140,5 @@ $(document).ready(function(event){
 		
 	});*/
 
-	$("#ctype").change(function(event){
-		var ctype = $("#ctype").val().trim();
-		if(ctype=="individual"){
-			$("#compdiv").attr("hidden", "true");
-			//$("#countrysp").css("background-color", "#ddd");
-		}else if(ctype=="company"){
-			$("#compdiv").removeAttr("hidden");
-			//$("#countrysp").css("background-color", "#fff");
-		}
-	});
-	
+
 });

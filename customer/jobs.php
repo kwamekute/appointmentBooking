@@ -1,6 +1,4 @@
 <?php
-$page = 'cust';
-$portal = 'Appointment';
 include '../includes/header.php';
 include 'sidemenu.php';
 ?>
@@ -12,10 +10,9 @@ include 'sidemenu.php';
 		<div class="page-content-wrapper">
 			<div class="page-content">
 				<div class="page-bar">
-				<br>
 					<div class="page-title-breadcrumb">
 						<div class=" pull-left">
-							<div class="page-title">All Customers
+							<div class="page-title">All Confirmed Appointments
 							</div>
 						</div>
 						<ol class="breadcrumb page-breadcrumb pull-right">
@@ -56,24 +53,22 @@ include 'sidemenu.php';
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-xs-6">
 						<div class="btn-group">
-							<a href="addcustomer.php" id="addRow" class="btn btn-info">
-								Add New <i class="fa fa-plus"></i>
+							<a href="confirmedapp.php" id="addRow" class="btn btn-info">
+								Add Job <i class="fa fa-plus"></i>
 							</a>
 						</div>
 					</div>
 							</div>
 							<div class="table-scrollable">
-								<table class="table table-hover table-checkable order-column full-width" id="custb" name="custb">
+								<table class="table table-hover table-checkable order-column full-width" id="jobstb" name="jobstb">
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>Name</th>
-											<th>Gender</th>						
-											<th>Phone</th>
-											<th>Email</th>
-											<th>Company</th>
-											<th>No. Of Cars</th>
-											<th>Date Added</th>
+											<th>Customer</th>
+											<th>Vehicle</th>					
+											<th>Technician</th>
+											<th>Time</th>
+											<th>Date Start</th>
 											<th>Action </th>
 										</tr>
 									</thead>
@@ -92,4 +87,4 @@ include 'sidemenu.php';
 	<!-- end page content -->
 
 <?php include '../includes/footer.php'; ?>
-<script src="js/customer.js"></script>
+<script src="js/jobplan.js"></script>

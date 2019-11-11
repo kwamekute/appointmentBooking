@@ -13,12 +13,16 @@ $gender = $crud->mysql_prep($_POST["gender"]);
 $phone = $crud->mysql_prep($_POST["phone"]);
 $email = $crud->mysql_prep($_POST["email"]);
 $doa = $crud->mysql_prep($_POST["doa"]);
-$company = '';
+if(isset($_POST['compname'])){
+	$company = $_POST['compname'];
+}else{
+	$company = '';
+}
 
 
-$sql1 = "REPLACE INTO customer(id,firstname,lastname,gender,phone,email,company,doa)
+$sql1 = "REPLACE INTO customer(id,firstname,lastname,gender,phone,email,company,userid,doa)
 		VALUES ('$cusid','$firstname','$lastname', '$gender', '$phone',
-				'$email','$company','$doa')";
+				'$email','$company','$userid','$doa')";
 
 		
 $result1 = $crud->create($sql1);

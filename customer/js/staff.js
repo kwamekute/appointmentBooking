@@ -4,7 +4,7 @@ $(document).ready(function(event){
 		$("#empdetb").DataTable().ajax.reload();
 	},2000);*/
 	//load employee details table
-	$('#custb').DataTable({
+	$('#stafftb').DataTable({
     "pagingType": "numbers",
     "processing": true,
 	"dom": 'Bfrtip',
@@ -29,33 +29,37 @@ $(document).ready(function(event){
             }
         ],
     "serverSide": true,
-    "ajax": "getallcustomers_code.php",
+    "ajax": "getallstaff_code.php",
     "columnDefs": [{
       "targets": -1,
       "data": "id",
-      "defaultContent":"<a class='btn btn-primary'>View</a>"
+      "defaultContent":"<a class='btn btn-primary'>Options</a>"
     }]
   });
   
-  
+  var staffid;
+  var role;
   //click event for employee details table
-  $('#custb tbody').on( 'click', 'tr', function () {
-    var table = $('#custb').DataTable();
+  $('#stafftb tbody').on( 'click', 'tr', function () {
+    var table = $('#stafftb').DataTable();
     var data = table.row( this ).data();
-	var cusid = data[0];
-	var userid = data[8];
-	var navuser = $("#navuser").html().trim();
-	if(userid!=navuser){
-		alert("You cannot edit this Customer information");
-	}else{
-		window.location = "addcustomer.php?cusid="+cusid+"";
-	}
+	staffid = data[0];
+	role = data[7];
 	
+	$("#staffid").val(staffid);
+	$("#role").val(role);
+	
+	$("#staffoptions").modal("show");
+	
+  });
+  
+  $("btnstaffd").click(function(event){
+	  window.location = "addstaff.php?staffid="+staffid+"";
   });
 
 
     //Save new
-	$("#btnaddcus").click(function(event){
+	$("#btnaddstaff").click(function(event){
 		event.preventDefault();
 		
 		var fname = $("#firstname").val().trim();
@@ -63,8 +67,9 @@ $(document).ready(function(event){
 		var gender = $("#gender").val().trim();
 		//var doe = $("#doe").val().trim();
 		var mobile = $("#phone").val().trim();
+		var role = $("#role").val().trim();
 		
-		if(fname=="" || lname=="" || gender=="" || mobile==""){
+		if(fname=="" || lname=="" || gender=="" || mobile=="" || role==""){
 			alert("Enter all the required details");
 			//toastr.error("Enter all the required details");
 		}else{
@@ -72,7 +77,7 @@ $(document).ready(function(event){
 		var data = $("#fmaddnew").serialize();
 		//$("#fmaddnew").addClass("loading");
 			$.ajax({
-				url:'addcustomer_code.php',
+				url:'addstaff_code.php',
 				type:'post',
 				data:data,
 				success:function(response){
@@ -145,16 +150,34 @@ $(document).ready(function(event){
 			},2000);
 		
 	});*/
-
-	$("#ctype").change(function(event){
-		var ctype = $("#ctype").val().trim();
-		if(ctype=="individual"){
-			$("#compdiv").attr("hidden", "true");
-			//$("#countrysp").css("background-color", "#ddd");
-		}else if(ctype=="company"){
-			$("#compdiv").removeAttr("hidden");
-			//$("#countrysp").css("background-color", "#fff");
-		}
-	});
 	
+	
+	//Save new
+	$("#btnadduser").click(function(event){
+		event.preventDefault();
+		
+		var pass = $("#password").val().trim();
+		var conpass = $("#confirmpass").val().trim();
+
+		if(pass!=conpass){
+			alert("Passwords do not match");
+			//toastr.error("Enter all the required details");
+		}else{
+		
+		var data = $("#fmadduser").serialize();
+		//$("#fmaddnew").addClass("loading");
+			$.ajax({
+				url:'adduser_code.php',
+				type:'post',
+				data:data,
+				success:function(response){
+					alert(response);					
+				}
+			});
+			
+		}		
+
+	});
+
+
 });

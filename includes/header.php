@@ -125,7 +125,7 @@ if (!(isset ( $_SESSION ['uname'] )) ) {
 					<li class="dropdown dropdown-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 							<img style="margin-top: 14px;"alt="" class="img-circle " src="" />
-							<span class="username username-hide-on-mobile"><h4 id="navuser" name="navuser" ><?php echo $fullname; ?></h4></span>
+							<span class="username username-hide-on-mobile"><h4 id="navuser" name="navuser" ><?php echo $username; ?></h4></span>
 							<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">

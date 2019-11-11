@@ -39,7 +39,7 @@ $(document).ready(function(event){
   $('#appointtb tbody').on( 'click', 'tr', function () {
     var table = $('#appointtb').DataTable();
     var data = table.row( this ).data();
-	var appid = data[5];
+	var appid = data[6];
 	
 	$.ajax({
 		url:'checkin_code.php',

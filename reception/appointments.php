@@ -1,6 +1,5 @@
-<?php
-$page = "appts";
-$portal = "Reception";
+<?php $page  = "appts";
+$portal = "appointments";
 include '../includes/header.php';
 include 'sidemenu.php';
 ?>
@@ -12,7 +11,8 @@ include 'sidemenu.php';
 		<div class="page-content-wrapper">
 			<div class="page-content">
 				<div class="page-bar">
-				<br>
+					<br>
+				
 					<div class="page-title-breadcrumb">
 						<div class=" pull-left">
 							<div class="page-title">All Appointments
@@ -56,8 +56,8 @@ include 'sidemenu.php';
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-xs-6">
 						<div class="btn-group">
-							<a href="checkins.php" id="addRow" class="btn btn-info">
-								View Checkins <i class="fa fa-plus"></i>
+							<a href="bookapp.php" id="addRow" class="btn btn-info">
+								Add New <i class="fa fa-plus"></i>
 							</a>
 						</div>
 					</div>
@@ -67,6 +67,7 @@ include 'sidemenu.php';
 									<thead>
 										<tr>
 											<th>Customer</th>
+											<th>Company</th>
 											<th>Date/Time Booked</th>
 											<th>Appointment Date/Time</th>						
 											<th>Service</th>

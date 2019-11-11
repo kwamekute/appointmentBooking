@@ -7,12 +7,13 @@ $des= "";
 $duedate="";
 $fromtime="";
 $totime = "";
+$company = "";
 
 if(isset($_GET["appid"])){
 	$appid = $_GET["appid"];
 	$sql = "SELECT appointment.id, appointment.dob, appointment.duedate , appointment.servicedescription AS des, 
 			appointment.customerid AS cusid, appointment.vehicleid, appointment.fromtime, appointment.endtime,
-			concat(customer.firstname, ' ', customer.lastname) as fullname FROM appointment
+			concat(customer.firstname, ' ', customer.lastname) as fullname, customer.company FROM appointment
 			LEFT JOIN customer ON appointment.customerid = customer.id 
 			WHERE appointment.id = '$appid'";
 	 $result = $con->query($sql);
@@ -24,6 +25,7 @@ if(isset($_GET["appid"])){
 			 $des = $row["des"];
 			 $fromtime = $row["fromtime"];
 			 $totime = $row["endtime"];
+			 $company = $row["company"];
 		 }
 	 }
 }else{

@@ -4,7 +4,7 @@ $table = <<<EOT
 (
 	SELECT checkin.id, checkin.appointmentid, checkin.datecheckin , checkin.datecheckout, checkin.userid
 	,appointment.duedate, appointment.vehicleid, appointment.servicedescription
-	,concat(customer.firstname, ' ', customer.lastname) as fullname FROM checkin
+	,concat(customer.firstname, ' ', customer.lastname, ' - ', customer.company) as fullname FROM checkin
 	LEFT JOIN appointment ON checkin.appointmentid = appointment.id 
 	LEFT JOIN customer ON appointment.customerid = customer.id
 )temp

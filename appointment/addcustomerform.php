@@ -14,6 +14,26 @@
 									<input type="text" id="cusid" name="cusid" value="<?php echo $cusid; ?>" hidden />
 									<input type="text" id="doa" name="doa" value="<?php echo $doa; ?>" hidden />
 									<div class="form-group row">
+										<label class="control-label col-md-3">Customer Type
+											<span class="required"> * </span>
+										</label>
+										<div class="col-md-5">
+											<select class="form-control input-height" data-required="1" name="ctype" id="ctype">
+												<option value="">Select...</option>
+												<option value="individual" <?php echo($compname===''?'selected':''); ?> >Individual</option>
+												<option value="company" <?php echo($compname!=''?'selected':''); ?> >Company</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group row" id="compdiv" name="compdiv" <?php echo($compname===''?'hidden':''); ?>>
+										<label class="control-label col-md-3">Company Name
+											<span class="required"> * </span>
+										</label>
+										<div class="col-md-5">
+											<input type="text" name="compname" id="compname" data-required="1" placeholder="enter company name" value="<?php echo $compname; ?>" class="form-control input-height" />
+										</div>
+									</div>
+									<div class="form-group row">
 										<label class="control-label col-md-3">First Name
 											<span class="required"> * </span>
 										</label>
@@ -74,7 +94,7 @@
 								<div class="form-actions">
 									<div class="row">
 										<div class="offset-md-3 col-md-9">
-											<?php if(!isset($cusid)){ ?>
+											<?php if(!isset($_GET['cusid'])){ ?>
 												<button id="btnaddcus" type="submit" class="btn btn-info m-r-20">Submit</button>
 											<?php											
 											}else{							

@@ -67,6 +67,7 @@ include 'sidemenu.php';
 									<thead>
 										<tr>
 											<th>Customer</th>
+											<th>Company</th>
 											<th>Date/Time Booked</th>
 											<th>Appointment Date/Time</th>						
 											<th>Service</th>

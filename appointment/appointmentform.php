@@ -36,7 +36,7 @@
 											?>
 												<?php foreach($resultc as $c) { ?>
 													<option value="<?php echo $c["id"]; ?>">
-													<?php echo $c["firstname"].' '.$c["lastname"]; ?>
+													<?php echo $c["firstname"].' '.$c["lastname"].' - '.$c["company"]; ?>
 													</option>
 												<?php  
 												}

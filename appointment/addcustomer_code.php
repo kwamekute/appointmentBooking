@@ -11,15 +11,19 @@ $lastname = $crud->mysql_prep($_POST["lastname"]);
 $gender = $crud->mysql_prep($_POST["gender"]);
 $phone = $crud->mysql_prep($_POST["phone"]);
 $email = $crud->mysql_prep($_POST["email"]);
-$company = '';
+if(isset($_POST['compname'])){
+	$company = $_POST['compname'];
+}else{
+	$company = '';
+}
 
 $cusid = ''.rand(1000,9999).'/'.rand(10,99).'/'.rand(0,9).'';
 
 
 
-$sql1 = "INSERT INTO customer(id,firstname,lastname,gender,phone,email,company)
+$sql1 = "INSERT INTO customer(id,firstname,lastname,gender,phone,email,company,userid)
 		VALUES ('$cusid','$firstname','$lastname', '$gender', '$phone',
-				'$email','$company')";
+				'$email','$company','$userid')";
 
 		
 $result1 = $crud->create($sql1);

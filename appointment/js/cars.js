@@ -11,7 +11,7 @@ $(document).ready(function(event){
 	"buttons": [
             "copy", "csv", "excel",
 			{
-				title: "Appointments",
+				title: "Vehicles",
                 extend: 'print',
 				exportOptions: {
 					stripHtml: false
@@ -46,7 +46,7 @@ $(document).ready(function(event){
 	var userid = data[6];
 	var navuser = $("#navuser").html().trim();
 	if(userid!=navuser){
-		alert("You cannot edit this appointment information");
+		alert("You cannot edit this vehicle information");
 	}else{
 		window.location = "addcars.php?appid="+appid+"";
 	}

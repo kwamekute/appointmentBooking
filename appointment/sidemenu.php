@@ -87,7 +87,7 @@
 				</ul>
 			</li>
 			
-			<!-- Company Menu Group -->
+			<!-- Company Menu Group 
 			<li class="nav-item <?php echo $page == ''?'active open':''; ?>">
 				<a href="#" class="nav-link nav-toggle"> <i class="material-icons">group</i>
 					<span class="title">Company</span> 
@@ -115,7 +115,7 @@
 						</a>
 					</li>
 				</ul>
-			</li>
+			</li> -->
 			
 			
 			<!-- Vehicles Menu Group -->

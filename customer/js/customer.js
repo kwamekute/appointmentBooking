@@ -43,13 +43,8 @@ $(document).ready(function(event){
     var table = $('#custb').DataTable();
     var data = table.row( this ).data();
 	var cusid = data[0];
-	var userid = data[8];
-	var navuser = $("#navuser").html().trim();
-	if(userid!=navuser){
-		alert("You cannot edit this Customer information");
-	}else{
-		window.location = "addcustomer.php?cusid="+cusid+"";
-	}
+	//var navuser = $("#navuser").html().trim();
+	window.location = "addcustomer.php?cusid="+cusid+"";
 	
   });
 
@@ -146,15 +141,5 @@ $(document).ready(function(event){
 		
 	});*/
 
-	$("#ctype").change(function(event){
-		var ctype = $("#ctype").val().trim();
-		if(ctype=="individual"){
-			$("#compdiv").attr("hidden", "true");
-			//$("#countrysp").css("background-color", "#ddd");
-		}else if(ctype=="company"){
-			$("#compdiv").removeAttr("hidden");
-			//$("#countrysp").css("background-color", "#fff");
-		}
-	});
-	
+
 });
